@@ -1,0 +1,92 @@
+{
+  "lang": "es",
+  "meta": {
+    "title": "Geopets · Mascotas pixel-art animadas en SVG y GIF",
+    "description": "145 mascotas pixel-art animadas con forma de cuadrado, triángulo, círculo, rombo y hexágono. Estados, códigos HTTP y un creador propio. Descarga en SVG o GIF, licencia CC BY 4.0.",
+    "ogAlt": "Cinco Geopets pixel-art: Cubo, Tri, Bola, Rombi y Hexa"
+  },
+  "nav": { "switchLabel": "Idioma", "en": "EN", "es": "ES" },
+  "hero": {
+    "lead": "Mascotas pixel-art animadas con forma de cuadrado, triángulo, círculo, rombo y hexágono. SVG puro con animación CSS, sin dependencias. Descárgalas o dibuja la tuya en una rejilla de 13×9 píxeles.",
+    "license": "CC BY 4.0 · menciona la licencia",
+    "count": "{files} SVG · {states} estados",
+    "size": "SVG · ~2 KB"
+  },
+  "gallery": {
+    "title": "Galería",
+    "files": "Los {n} archivos SVG",
+    "formatLabel": "Formato de descarga",
+    "ariaKind": "Filtrar por tipo de estado",
+    "ariaShape": "Filtrar por forma"
+  },
+  "kind": { "states": "Estados", "http": "HTTP", "all": "Todo" },
+  "filter": { "all": "Todas" },
+  "fmt": { "svg": "SVG", "gif": "GIF transparente", "gifw": "GIF fondo blanco" },
+  "btn": {
+    "download": "Descargar",
+    "copy": "Copiar",
+    "edit": "Editar",
+    "embed": "URL",
+    "downloadFmt": "Descargar {ext}",
+    "copySvg": "Copiar SVG",
+    "myPack": "Descargar mi pack (.zip)",
+    "pack": "Descargar pack completo (.zip)",
+    "packShape": "Descargar pack de {name} (.zip)",
+    "preparing": "Preparando…",
+    "clear": "Vaciar",
+    "invert": "Invertir",
+    "mirror": "Simetría ←→"
+  },
+  "aria": {
+    "edit": "Editar {name} {state}",
+    "embed": "Copiar URL para incrustar {name} {state}",
+    "pixel": "Píxel {x},{y}"
+  },
+  "progress": { "gif": "GIF {i}/{n}…" },
+  "toast": {
+    "copied": "SVG copiado",
+    "urlCopied": "URL copiada",
+    "copyManual": "Selecciona y copia manualmente",
+    "saved": "Guardado: {file}",
+    "cancelled": "Descarga cancelada",
+    "downloadFailed": "No se pudo descargar aquí. Usa Copiar SVG.",
+    "gifFailed": "No se pudo crear el GIF. Prueba con SVG.",
+    "packFailed": "No se pudo crear el pack. Prueba con SVG.",
+    "emptyMask": "Pinta al menos un píxel antes de descargar"
+  },
+  "create": {
+    "title": "Crea el tuyo",
+    "lead": "Pinta píxeles, elige colores y estado.",
+    "preset": "Partir de una forma",
+    "body": "Cuerpo · clic o arrastra para pintar",
+    "color": "Color",
+    "eyes": "Ojos",
+    "name": "Nombre",
+    "presetName": "mi-{shape}",
+    "state": "Estado",
+    "empty": "vacío"
+  },
+  "defaultPetName": "mi-geopet",
+  "license": {
+    "title": "Licencia y uso",
+    "p1before": "Las Geopets tienen licencia",
+    "p1after": ". Puedes usarlas y modificarlas en apps, READMEs, juegos o productos comerciales, siempre que menciones la licencia y el origen.",
+    "p2": "Basta con una línea como:",
+    "credit": "Geopets por Adiezdev (adiez.dev) · CC BY 4.0",
+    "note": "Inspiradas en el formato de Clawd Pets (SVG pixel-art con estados). Diseños originales, sin relación con Anthropic.",
+    "deed": "https://creativecommons.org/licenses/by/4.0/deed.es",
+    "snippetAlt": "Geopet escribiendo",
+    "snippetComment": "o pégalo en línea para cambiar colores con CSS"
+  },
+  "licenseTxt": "Geopets por Adiezdev (https://adiez.dev)\nLicencia: Creative Commons Atribución 4.0 Internacional (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/deed.es\n\nPuedes copiar, modificar y usar estos archivos, también comercialmente,\nsiempre que menciones la licencia y el origen, por ejemplo:\n  Geopets por Adiezdev (adiez.dev) · CC BY 4.0\n\nInspirado en el formato de Clawd Pets; diseños originales sin relación con Anthropic.\n",
+  "footer": { "madeBy": "Creado por" },
+  "state": {
+    "idle": "Reposo", "happy": "Feliz", "sad": "Triste", "angry": "Enfadado", "love": "Enamorado",
+    "sleeping": "Durmiendo", "surprised": "Sorprendido", "typing": "Escribiendo", "thinking": "Pensando",
+    "dizzy": "Mareado", "waving": "Saludando", "celebrating": "Celebrando", "idea": "Idea", "music": "Música",
+    "coffee": "Café", "loading": "Cargando", "error": "Error",
+    "200": "200 OK", "201": "201 Creado", "204": "204 Sin contenido", "301": "301 Movido",
+    "400": "400 Petición incorrecta", "401": "401 No autorizado", "403": "403 Prohibido", "404": "404 No encontrado",
+    "418": "418 Soy una tetera", "429": "429 Demasiadas peticiones", "500": "500 Error del servidor", "503": "503 No disponible"
+  }
+}

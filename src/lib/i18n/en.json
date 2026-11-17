@@ -1,0 +1,92 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Geopets · Animated pixel-art pets in SVG and GIF",
+    "description": "145 free animated pixel-art pets shaped like a square, triangle, circle, diamond and hexagon. Moods, HTTP status codes and a pet maker. Download as SVG or GIF, CC BY 4.0.",
+    "ogAlt": "Five pixel-art Geopets: Cubo, Tri, Bola, Rombi and Hexa"
+  },
+  "nav": { "switchLabel": "Language", "en": "EN", "es": "ES" },
+  "hero": {
+    "lead": "Animated pixel-art pets shaped like a square, triangle, circle, diamond and hexagon. Pure SVG with CSS animation, zero dependencies. Download them, or draw your own on a 13×9 pixel grid.",
+    "license": "CC BY 4.0 · credit the license",
+    "count": "{files} SVGs · {states} states",
+    "size": "SVG · ~2 KB"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "files": "All {n} SVG files",
+    "formatLabel": "Download format",
+    "ariaKind": "Filter by state type",
+    "ariaShape": "Filter by shape"
+  },
+  "kind": { "states": "Moods", "http": "HTTP", "all": "All" },
+  "filter": { "all": "All" },
+  "fmt": { "svg": "SVG", "gif": "Transparent GIF", "gifw": "GIF on white" },
+  "btn": {
+    "download": "Download",
+    "copy": "Copy",
+    "edit": "Edit",
+    "embed": "URL",
+    "downloadFmt": "Download {ext}",
+    "copySvg": "Copy SVG",
+    "myPack": "Download my pack (.zip)",
+    "pack": "Download full pack (.zip)",
+    "packShape": "Download {name} pack (.zip)",
+    "preparing": "Preparing…",
+    "clear": "Clear",
+    "invert": "Invert",
+    "mirror": "Mirror ←→"
+  },
+  "aria": {
+    "edit": "Edit {name} {state}",
+    "embed": "Copy embed URL for {name} {state}",
+    "pixel": "Pixel {x},{y}"
+  },
+  "progress": { "gif": "GIF {i}/{n}…" },
+  "toast": {
+    "copied": "SVG copied",
+    "urlCopied": "URL copied",
+    "copyManual": "Select and copy it manually",
+    "saved": "Saved: {file}",
+    "cancelled": "Download cancelled",
+    "downloadFailed": "Couldn't download here. Use Copy SVG instead.",
+    "gifFailed": "Couldn't create the GIF. Try SVG.",
+    "packFailed": "Couldn't create the pack. Try SVG.",
+    "emptyMask": "Paint at least one pixel before downloading"
+  },
+  "create": {
+    "title": "Make your own",
+    "lead": "Paint pixels, pick colors and a mood.",
+    "preset": "Start from a shape",
+    "body": "Body · click or drag to paint",
+    "color": "Color",
+    "eyes": "Eyes",
+    "name": "Name",
+    "presetName": "my-{shape}",
+    "state": "State",
+    "empty": "empty"
+  },
+  "defaultPetName": "my-geopet",
+  "license": {
+    "title": "License and use",
+    "p1before": "Geopets are licensed under",
+    "p1after": ". Use and remix them in apps, READMEs, games or commercial products, as long as you credit the license and the source.",
+    "p2": "One line is enough:",
+    "credit": "Geopets by Adiezdev (adiez.dev) · CC BY 4.0",
+    "note": "Inspired by the Clawd Pets format (pixel-art SVG with states). Original designs, not affiliated with Anthropic.",
+    "deed": "https://creativecommons.org/licenses/by/4.0/",
+    "snippetAlt": "Geopet typing",
+    "snippetComment": "or inline it to recolor with CSS"
+  },
+  "licenseTxt": "Geopets by Adiezdev (https://adiez.dev)\nLicense: Creative Commons Attribution 4.0 International (CC BY 4.0)\nhttps://creativecommons.org/licenses/by/4.0/\n\nYou may copy, modify and use these files, including commercially,\nas long as you credit the license and the source, for example:\n  Geopets by Adiezdev (adiez.dev) · CC BY 4.0\n\nInspired by the Clawd Pets format; original designs, not affiliated with Anthropic.\n",
+  "footer": { "madeBy": "Made by" },
+  "state": {
+    "idle": "Idle", "happy": "Happy", "sad": "Sad", "angry": "Angry", "love": "In love",
+    "sleeping": "Sleeping", "surprised": "Surprised", "typing": "Typing", "thinking": "Thinking",
+    "dizzy": "Dizzy", "waving": "Waving", "celebrating": "Celebrating", "idea": "Idea", "music": "Music",
+    "coffee": "Coffee", "loading": "Loading", "error": "Error",
+    "200": "200 OK", "201": "201 Created", "204": "204 No Content", "301": "301 Moved",
+    "400": "400 Bad Request", "401": "401 Unauthorized", "403": "403 Forbidden", "404": "404 Not Found",
+    "418": "418 I'm a teapot", "429": "429 Too Many Requests", "500": "500 Server Error", "503": "503 Unavailable"
+  }
+}

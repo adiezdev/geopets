@@ -1,0 +1,15 @@
+---
+import Base from "../../layouts/Base.astro";
+import Page from "../../components/Page.astro";
+import { LANGS, DEFAULT_LANG, getDict } from "../../lib/i18n/index.js";
+
+// one route for every language: "/" for the default, "/<lang>/" for the rest
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang: lang === DEFAULT_LANG ? undefined : lang }, props: { lang } }));
+}
+const { lang } = Astro.props;
+const dict = getDict(lang);
+---
+<Base lang={lang} dict={dict}>
+  <Page lang={lang} dict={dict} />
+</Base>
