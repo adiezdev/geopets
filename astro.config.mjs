@@ -3,7 +3,7 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 // The one place the domain lives: canonical, hreflang, sitemap, og:image, JSON-LD and embed URLs derive from it.
-const SITE = "https://geopet.adiez.dev";
+const SITE = "https://geopets.adiez.dev";
 
 export default defineConfig({
   site: SITE,

@@ -2,7 +2,7 @@
 import { describe, it, expect } from "vitest";
 import fs from "node:fs";
 
-const SITE = "https://geopet.adiez.dev";
+const SITE = "https://geopets.adiez.dev";
 const read = (p) => fs.readFileSync(new URL(`../dist/${p}`, import.meta.url), "utf8");
 const pages = { en: { file: "index.html", url: `${SITE}/` }, es: { file: "es/index.html", url: `${SITE}/es/` } };
 

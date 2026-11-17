@@ -37,7 +37,7 @@ El público objetivo son **desarrolladores de fuera de España**, así que el si
 - Fuente de verdad del código actual: `geopets/index.html` (generador `svgPet`, `layout`, `SHAPES`, `STATES`, `HTTP`, GIF con gifenc, zip con JSZip). Debe quedar como referencia hasta que el sitio Astro iguale su comportamiento; después se borra.
 - Salida 100 % estática (`output: "static"`), apta para Vercel o GitHub Pages.
 - **Todo se construye y se prueba en local** (`npm run dev` / `npm run build && npm run preview`). Desplegar queda fuera de este trabajo.
-- Dominio: va en **un solo valor**, `site` en `astro.config.mjs` (`https://geopet.adiez.dev`). Canonical, hreflang, sitemap, `og:image`, JSON-LD y las URLs de embed se derivan de él, así que cambiar de dominio es editar una línea y volver a hacer build. Sin `base` (el sitio cuelga de la raíz); si se aloja en GitHub Pages sin dominio propio, habrá que añadir `base` entonces.
+- Dominio: va en **un solo valor**, `site` en `astro.config.mjs` (`https://geopets.adiez.dev`). Canonical, hreflang, sitemap, `og:image`, JSON-LD y las URLs de embed se derivan de él, así que cambiar de dominio es editar una línea y volver a hacer build. Sin `base` (el sitio cuelga de la raíz); si se aloja en GitHub Pages sin dominio propio, habrá que añadir `base` entonces.
 - Fuentes de Google ya usadas: Pixelify Sans, DM Sans, JetBrains Mono.
 
 ## Enfoques considerados
