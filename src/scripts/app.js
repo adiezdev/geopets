@@ -9,7 +9,8 @@ const $ = (id) => document.getElementById(id);
 const label = (st) => t(`state.${st}`);
 const isHttp = (st) => st in HTTP;
 const petOpts = (s) => ({ color: s.color, legs: s.legs, shade: s.shade });
-const pet = (mask, opts, p) => svgPet(mask, { ...opts, emptyLabel: t("create.empty") }, p);
+let hat = false; // santa hat toggle, shared by gallery and creator
+const pet = (mask, opts, p) => svgPet(mask, { ...opts, hat, emptyLabel: t("create.empty") }, p);
 
 // ---------- helpers ----------
 function toast(msg) {
@@ -112,13 +113,13 @@ $("grid").addEventListener("click", (e) => {
   const b = e.target.closest("button");
   if (!b) return;
   const { dl, cp, url, ed } = b.dataset;
-  const [k, st] = (dl || cp || url || ed).split("|"), s = SHAPES[k], m = maskFrom(s.fn), o = { ...petOpts(s), state: st };
-  if (dl) saveOne(fileName(k, st, ext()).replace(/\.\w+$/, ""), m, o);
+  const [k, st] = (dl || cp || url || ed).split("|"), s = SHAPES[k], m = maskFrom(s.fn), o = { ...petOpts(s), state: st, hat };
+  if (dl) saveOne(fileName(hat ? `${k}-santa` : k, st, ext()).replace(/\.\w+$/, ""), m, o);
   else if (cp) copy(standalone(m, o));
   else if (url) copy(`${site}pets/${fileName(k, st, "svg")}`, "toast.urlCopied");
   else { loadPreset(k); cur.state = st; renderCreator(); $("create").scrollIntoView({ behavior: "smooth" }); }
 });
-$("packBtn").onclick = (e) => packDownload(e.currentTarget, packName(filter), packEntries(filter));
+$("packBtn").onclick = (e) => packDownload(e.currentTarget, packName(filter, hat), packEntries(filter, hat));
 
 // ---------- creator ----------
 const cur = { mask: maskFrom(SHAPES.cube.fn), ...petOpts(SHAPES.cube), eye: "#1E1B2E", state: "idle" };
@@ -167,15 +168,15 @@ const hasPixels = () => { if (layout(cur.mask)) return true; toast(t("toast.empt
 $("myPackBtn").onclick = (e) => {
   if (!hasPixels()) return;
   const n = petSlug();
-  packDownload(e.currentTarget, `${n}-pack.zip`, [[n, cur.mask, { color: cur.color, eye: cur.eye, legs: cur.legs, shade: cur.shade }]]);
+  packDownload(e.currentTarget, `${n}-pack.zip`, [[n, cur.mask, { color: cur.color, eye: cur.eye, legs: cur.legs, shade: cur.shade, hat }]]);
 };
 $("dlBtn").onclick = async (e) => {
   if (!hasPixels()) return;
   const b = e.currentTarget;
   b.disabled = true;
-  try { await saveOne(`${petSlug()}-${cur.state}`, cur.mask, cur); } finally { b.disabled = false; }
+  try { await saveOne(`${petSlug()}-${cur.state}`, cur.mask, { ...cur, hat }); } finally { b.disabled = false; }
 };
-$("copyBtn").onclick = () => copy(standalone(cur.mask, cur));
+$("copyBtn").onclick = () => copy(standalone(cur.mask, { ...cur, hat }));
 
 function renderEditor() {
   ed.style.setProperty("--pet", cur.color);
@@ -190,5 +191,12 @@ function renderPreview() {
   $("strip").innerHTML = ALL_STATES.map((s) => `<button data-s="${s}" aria-pressed="${s === cur.state}">${pet(cur.mask, { ...cur, state: s })}${label(s)}</button>`).join("");
 }
 function renderCreator() { renderEditor(); renderPreview(); }
+
+document.addEventListener("change", (e) => {
+  if (!e.target.matches(".hatInput")) return;
+  hat = e.target.checked;
+  document.querySelectorAll(".hatInput").forEach((i) => { i.checked = hat; });
+  renderGrid(); renderPreview();
+});
 
 renderChips(); renderGrid(); renderCreator(); renderFmt();

@@ -4,8 +4,10 @@ import { SHAPES, ALL_STATES, maskFrom, standalone, fileName } from "../lib/geope
 const petOpts = (s) => ({ color: s.color, legs: s.legs, shade: s.shade });
 
 // [folder, mask, opts] for the gallery pack; "all" or one shape key
-export const packEntries = (filter) =>
-  Object.entries(SHAPES).filter(([k]) => filter === "all" || filter === k).map(([k, s]) => [k, maskFrom(s.fn), petOpts(s)]);
+// hat variants get a "-santa" suffix so they never overwrite the plain files
+export const packEntries = (filter, hat = false) =>
+  Object.entries(SHAPES).filter(([k]) => filter === "all" || filter === k)
+    .map(([k, s]) => [hat ? `${k}-santa` : k, maskFrom(s.fn), { ...petOpts(s), hat }]);
 
 // format: "svg" | "gif" (transparent) | "gifw" (white background)
 export const extFor = (format) => (format === "svg" ? "svg" : "gif");
@@ -15,7 +17,8 @@ export const extFor = (format) => (format === "svg" ? "svg" : "gif");
 export const fileForFormat = (format, gif) => async (mask, opts) =>
   format === "svg" ? standalone(mask, opts) : new Blob([await gif(mask, opts, format === "gifw" ? "#FFFFFF" : null)], { type: "image/gif" });
 
-export const packName = (filter) => (filter === "all" ? "geopets-pack.zip" : `geopets-${filter}.zip`);
+export const packName = (filter, hat = false) =>
+  filter === "all" ? `geopets${hat ? "-santa" : ""}-pack.zip` : `geopets-${filter}${hat ? "-santa" : ""}.zip`;
 
 // fileFor(mask, opts) -> string | Blob | Promise of either; defaults to the standalone SVG
 export async function buildPack(entries, { ext, licenseTxt, onProgress, fileFor = (m, o) => standalone(m, o) }) {
