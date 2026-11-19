@@ -21,6 +21,7 @@
   },
   "kind": { "states": "Estados", "http": "HTTP", "all": "Todo" },
   "filter": { "all": "Todas" },
+  "hat": { "label": "Gorro navideño" },
   "fmt": { "svg": "SVG", "gif": "GIF transparente", "gifw": "GIF fondo blanco" },
   "btn": {
     "download": "Descargar",

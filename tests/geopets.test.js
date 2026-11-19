@@ -12,6 +12,26 @@ describe("generator", () => {
     expect(ALL_STATES.length).toBe(29);
   });
 
+  it("shades every shape (right edge and bottom row)", () => {
+    for (const k in SHAPES) {
+      expect(SHAPES[k].shade, k).toBe(true);
+      expect(svgPet(maskFrom(SHAPES[k].fn), opts(k, "idle"), "t-"), k).toContain('fill="#000" opacity=".2"');
+    }
+  });
+
+  it("draws a santa hat only when asked", () => {
+    for (const k in SHAPES) {
+      const m = maskFrom(SHAPES[k].fn);
+      expect(svgPet(m, opts(k, "idle"), "t-"), k).not.toContain('class="t-hat"');
+      expect(svgPet(m, { ...opts(k, "idle"), hat: true }, "t-"), k).toContain('class="t-hat"');
+    }
+  });
+
+  it("keeps the hat on http pets and empty masks don't crash", () => {
+    expect(svgPet(maskFrom(SHAPES.cube.fn), { ...opts("cube", "404"), hat: true }, "t-")).toContain('class="t-hat"');
+    expect(svgPet(maskFrom(() => 0), { color: "#000", hat: true }).endsWith("</svg>")).toBe(true);
+  });
+
   it("keeps character names", () => {
     expect(Object.values(SHAPES).map(s => s.name)).toEqual(["Cubo", "Tri", "Bola", "Rombi", "Hexa"]);
   });
@@ -34,7 +54,8 @@ describe("generator", () => {
     for (const [key, svg] of Object.entries(legacy)) {
       const [s, st] = key.split("|");
       const k = shapeMap[s];
-      expect(svgPet(maskFrom(SHAPES[k].fn), opts(k, stateMap[st]), "gp-"), key).toBe(svg);
+      // legacy only shaded the cube; compare the rest unshaded so this still proves the geometry
+      expect(svgPet(maskFrom(SHAPES[k].fn), { ...opts(k, stateMap[st]), shade: k === "cube" }, "gp-"), key).toBe(svg);
     }
   });
 

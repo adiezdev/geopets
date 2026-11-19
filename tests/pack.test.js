@@ -32,6 +32,17 @@ describe("packs", () => {
   });
 });
 
+describe("santa hat packs", () => {
+  it("marks hat packs in folder and zip names", () => {
+    const [folder, , o] = packEntries("cube", true)[0];
+    expect(folder).toBe("cube-santa");
+    expect(o.hat).toBe(true);
+    expect(packEntries("cube")[0][0]).toBe("cube");
+    expect(packName("cube", true)).toBe("geopets-cube-santa.zip");
+    expect(packName("all", true)).toBe("geopets-santa-pack.zip");
+  });
+});
+
 describe("format is fixed when a pack starts", () => {
   it("keeps producing the starting format even if the page format changes", async () => {
     let pageFmt = "gifw";

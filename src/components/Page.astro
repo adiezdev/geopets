@@ -43,6 +43,7 @@ const files = Object.keys(SHAPES).flatMap((k) => ALL_STATES.map((st) => fileName
     <div class="row">
       <span class="mono muted">{t(dict, "gallery.formatLabel")}</span>
       <div class="chips fmtChips" role="group" aria-label={t(dict, "gallery.formatLabel")}></div>
+      <label class="hatToggle"><input type="checkbox" class="hatInput" /> {t(dict, "hat.label")}</label>
     </div>
     <div class="grid" id="grid"></div>
     <details class="files">
@@ -72,6 +73,7 @@ const files = Object.keys(SHAPES).flatMap((k) => ALL_STATES.map((st) => fileName
         <div class="stage big" id="bigStage"></div>
         <div class="row" style="justify-content:center">
           <div class="chips fmtChips" role="group" aria-label={t(dict, "gallery.formatLabel")}></div>
+      <label class="hatToggle"><input type="checkbox" class="hatInput" /> {t(dict, "hat.label")}</label>
         </div>
         <div class="row" style="justify-content:center">
           <button class="primary" id="dlBtn">{t(dict, "btn.downloadFmt", { ext: "SVG" })}</button>

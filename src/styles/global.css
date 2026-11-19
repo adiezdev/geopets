@@ -64,3 +64,5 @@ header{position:relative}
 .files summary{cursor:pointer;color:var(--muted);font:500 .85rem var(--f-body)}
 .files div{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 16px;margin-top:10px}
 .files a{font:.75rem var(--f-mono);color:var(--muted);overflow-wrap:anywhere}
+.hatToggle{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer}
+.hatToggle input{accent-color:#E23B3B;width:16px;height:16px}

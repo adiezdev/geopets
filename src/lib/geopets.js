@@ -2,12 +2,12 @@
 export const W=13,H=9,OX=4,OY=6;
 // keys are english (used in file names); name is the character name shown in every language
 export const SHAPES={
-  // 9×9 shaded cube on 2 legs, so it doesn't read as a wide 4-legged Clawd
+  // 9×9 cube on 2 legs, so it doesn't read as a wide 4-legged Clawd
   cube:{name:"Cubo",color:"#EF5B5B",legs:2,shade:true,fn:(x,y)=>x>=2&&x<=10},
-  triangle:{name:"Tri",color:"#56CCF2",fn:(x,y)=>Math.abs(x-6)<=Math.round(y*6/8)},
-  circle:{name:"Bola",color:"#9B8CFF",fn:(x,y)=>((x-6)/6.5)**2+((y-4)/4.6)**2<=1},
-  diamond:{name:"Rombi",color:"#6FCF97",fn:(x,y)=>Math.abs(x-6)/6.6+Math.abs(y-4)/4.6<=1},
-  hexagon:{name:"Hexa",color:"#F2C94C",fn:(x,y)=>Math.abs(x-6)<=6-Math.max(0,Math.abs(y-4)-1)}
+  triangle:{name:"Tri",color:"#56CCF2",shade:true,fn:(x,y)=>Math.abs(x-6)<=Math.round(y*6/8)},
+  circle:{name:"Bola",color:"#9B8CFF",shade:true,fn:(x,y)=>((x-6)/6.5)**2+((y-4)/4.6)**2<=1},
+  diamond:{name:"Rombi",color:"#6FCF97",shade:true,fn:(x,y)=>Math.abs(x-6)/6.6+Math.abs(y-4)/4.6<=1},
+  hexagon:{name:"Hexa",color:"#F2C94C",shade:true,fn:(x,y)=>Math.abs(x-6)<=6-Math.max(0,Math.abs(y-4)-1)}
 };
 export const STATE_KEYS=["idle","happy","sad","angry","love","sleeping","surprised","typing","thinking","dizzy","waving",
   "celebrating","idea","music","coffee","loading","error"];
@@ -56,12 +56,15 @@ export function layout(m,nLegs=4){
 
 
 const px=(pts,ox,oy,extra="")=>pts.map(([x,y])=>`<rect x="${ox+x}" y="${oy+y}" width="1" height="1"${extra}/>`).join("");
+// Santa hat, relative to the head's top-center pixel (0,0 = first body row): red cone drooping right, white band and pompom
+const HAT_RED=[[-2,-2],[-1,-2],[0,-2],[1,-2],[2,-2],[-1,-3],[0,-3],[1,-3],[2,-3],[1,-4],[2,-4],[3,-4]];
+const HAT_WHITE=[[-3,-1],[-2,-1],[-1,-1],[0,-1],[1,-1],[2,-1],[3,-1],[4,-5],[5,-5],[4,-4],[5,-4]];
 const HEART=[[0,0],[2,0],[0,1],[1,1],[2,1],[1,2]], ZED=[[0,0],[1,0],[2,0],[3,0],[2,1],[1,2],[0,3],[1,3],[2,3],[3,3]];
 const NOTE=[[1,0],[2,0],[1,1],[1,2],[0,3],[1,3]], BULB=[[1,0],[0,1],[1,1],[2,1],[0,2],[1,2],[2,2]], CROSS=[[0,0],[2,0],[1,1],[0,2],[2,2]];
 const CONFETTI=["#FF5D8F","#FFC93C","#56CCF2","#6FCF97","#9B8CFF"];
 
 let uid=0;
-export function svgPet(m,{color,eye="#1E1B2E",state="idle",legs:nLegs=4,shade=false,emptyLabel="empty"},p){
+export function svgPet(m,{color,eye="#1E1B2E",state="idle",legs:nLegs=4,shade=false,hat=false,emptyLabel="empty"},p){
   p=p||("g"+(++uid)+"-");
   const L=layout(m,nLegs);
   const hc=HTTP[state]?state:null, base=hc?HTTP[hc].base:state;
@@ -184,6 +187,8 @@ export function svgPet(m,{color,eye="#1E1B2E",state="idle",legs:nLegs=4,shade=fa
       bodyAnim=`animation:${p}glitch 1.5s steps(1) infinite`;
       fx.push(`<g fill="#FF4D4D" style="animation:${p}blink .8s steps(1) infinite">${px(CROSS,Math.round(hx)-1,hy-4)}</g>`);break;
   }
+  // drawn before the HTTP sign so the sign covers the hat's tip
+  if(hat)inner+=`<g class="${p}hat"><g fill="#E23B3B">${px(HAT_RED,Math.round(hx),hy)}</g><g fill="#EDEDED">${px(HAT_WHITE,Math.round(hx),hy)}</g></g>`;
   if(hc){
     fx.length=0; // the sign takes the space above the head
     const sx=Math.round(hx)-6, sy=hy-10, sc={2:"#6FCF97",3:"#56CCF2",4:"#FFC93C",5:"#FF6B6B"}[hc[0]];

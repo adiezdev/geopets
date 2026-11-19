@@ -21,6 +21,7 @@
   },
   "kind": { "states": "Moods", "http": "HTTP", "all": "All" },
   "filter": { "all": "All" },
+  "hat": { "label": "Santa hat" },
   "fmt": { "svg": "SVG", "gif": "Transparent GIF", "gifw": "GIF on white" },
   "btn": {
     "download": "Download",
